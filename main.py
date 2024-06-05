@@ -14,21 +14,8 @@ input = st.chat_input(
     "Enter the Muscle name for which your planing to hit today!: ")
 
 
-def string_generator(s):
-    for char in s:
-        time.sleep(.01)
-        yield char
-
-
 if 'chat_history' not in st.session_state:
-    st.session_state.chat_history = []
-
-st.session_state.chat_history.append(
-    AIMessage('Hi! I am your Workout Coach. How can I help you?'))
-
-with st.chat_message('AI'):
-    st.write_stream(string_generator(
-        'Hi! I am your Workout Coach. How can I help you?'))
+    st.session_state.chat_history = [AIMessage('Hi! I am your Workout Coach. How can I help you?')]
 
 
 for message in st.session_state.chat_history:
